@@ -5624,33 +5624,25 @@
         "type": "query"
       },
       {
-  "current": {
-    "selected": false,
-    "text": "",
-    "value": ""
-  },
-  "datasource": {
-    "type": "prometheus",
-    "uid": "prometheus"
-  },
-  "definition": "label_values(node_uname_info, cluster)",
-  "hide": 0,
-  "includeAll": false,
-  "label": "Cluster",
-  "multi": false,
-  "name": "cluster",
-  "options": [],
-  "query": {
-    "query": "label_values(node_uname_info, cluster)",
-    "refId": "StandardVariableQuery"
-  },
-  "refresh": 1,
-  "regex": "",
-  "skipUrlSync": false,
-  "sort": 1,
-  "type": "query"
-}
-
+        "current": {
+          "text": "8",
+          "value": "8"
+        },
+        "datasource": "prometheus",
+        "definition": "query_result(count(node_uname_info{cluster=~\"$cluster\",job=~\"$job\"}))",
+        "hide": 2,
+        "includeAll": false,
+        "label": "total_servers",
+        "name": "total",
+        "options": [],
+        "query": {
+          "query": "query_result(count(node_uname_info{cluster=~\"$cluster\",job=~\"$job\"}))",
+          "refId": "Prometheus-total-Variable-Query"
+        },
+        "refresh": 1,
+        "regex": "/{} (.*) .*/",
+        "type": "query"
+      }
     ]
   },
   "time": {
